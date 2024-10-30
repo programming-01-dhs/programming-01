@@ -1,5 +1,5 @@
-import random
 import turtle
+import random
 
 #problem 6
 
@@ -18,6 +18,13 @@ turtle.colormode(255)
 R = 0
 G = 0
 B = 0
+R2 = 0
+G2 = 0
+B2 = 0
+R3 = 0
+G3 = 0
+B3 = 0
+
 
 circleLoop = True
 triFillLoop = False
@@ -41,7 +48,7 @@ while circleLoop == True:
     G = random.randint(0, 255)
     B = random.randint(0, 255)
 
-    if circleCount < 10:
+    if circleCount < 0:
         t.pensize(1.3)
         t.penup()
         t.goto(circleX,  circleY)
@@ -93,10 +100,17 @@ while triFillLoop == True:
 while trinoFillLoop == True:    
 
     trinoFillX = random.randint(5, 250)
-    trinoFillY = random.randint(5, 230)
+    trinoFillY = random.randint(5, 260)
     R = random.randint(0, 255)
     G = random.randint(0, 255)
     B = random.randint(0, 255)
+    R2 = random.randint(0, 255)
+    G2 = random.randint(0, 255)
+    B2 = random.randint(0, 255)
+    R3 = random.randint(0, 255)
+    G3 = random.randint(0, 255)
+    B3 = random.randint(0, 255)
+
 
     if triangleCountnoFill < 10:
         t.penup()
@@ -105,23 +119,51 @@ while trinoFillLoop == True:
         t.pendown()
         t.lt(90)
         t.fd(60)
-        t.color(R, G, B)
+        t.color(R2, G2, B2)
         t.rt(120)
         t.fd(60)
-        t.color(R, G, B)
+        t.color(R3, G3, B3)
         t.rt(120)
         t.fd(60)
         t.penup()
         t.color(0, 0, 0)
         t.home()
-        triangleCountnoFill += 1
+        triangleCountnoFill = triangleCountnoFill + 1
     
     else:
         t.color(0, 0, 0), t2.color(0, 0, 0)
         t.penup()
         t.home()
+        triangleCountnoFill = False
         lineCount = True
+    
+while lineCount == True:
 
+        lineX1 = random.randint(2, 300)
+        lineY1 = random.randint(-300, -2)
+        lineX2 = random.randint(2, 300)
+        lineY2 = random.randint(-300, -2)
+
+        R = random.randint(0, 255)
+        G = random.randint(0, 255)
+        B = random.randint(0, 255)
+
+        if lineCount < 100:
+            t.penup()
+            t.home()
+            t.goto(lineX1, lineY1)
+            t.color(R, G, B)
+            t.pendown()
+            t.goto(lineX2, lineY2)
+            t.penup()
+            t.home()
+            lineCount += 1
+        
+        else:
+            t.color(0, 0, 0), t2.color(0, 0, 0)
+            t.penup()
+            t.home()
+            lineCount = false
 
         w.mainloop()
         
